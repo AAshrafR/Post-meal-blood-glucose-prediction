@@ -113,5 +113,3 @@ The training script produces row-level predictions and residuals, plus subject-l
 Post-meal measurements are excluded from the feature set because they would not be available at prediction time. Imputation, scaling, and categorical encoding are fitted inside the modeling pipeline on training folds only.
 
 `subject_id` is used for grouping but is not provided to the model as a feature.
-
-All source-code comments and docstrings are written in English.
