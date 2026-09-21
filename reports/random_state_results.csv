@@ -1,0 +1,8 @@
+random_state,selected_cv_model,final_model,test_mae,test_rmse,test_r2,train_rows,test_rows,train_subjects,test_subjects,subject_overlap,best_params
+10,extra_trees,tuned_extra_trees,25.65357839050246,36.28163380280102,0.22396736563369513,1336,340,36,9,0,"{""model__max_depth"": null, ""model__max_features"": 1.0, ""model__min_samples_leaf"": 2, ""model__n_estimators"": 400}"
+20,extra_trees,tuned_extra_trees,26.967573403467057,35.151855595206364,0.30998123443599834,1355,321,36,9,0,"{""model__max_depth"": 12, ""model__max_features"": 1.0, ""model__min_samples_leaf"": 2, ""model__n_estimators"": 700}"
+30,extra_trees,tuned_extra_trees,26.42565549247214,34.791386251502864,0.26060542040875745,1309,367,36,9,0,"{""model__max_depth"": 12, ""model__max_features"": 0.7, ""model__min_samples_leaf"": 2, ""model__n_estimators"": 400}"
+42,extra_trees,tuned_extra_trees,30.38578374785438,39.45096991095127,0.4910326083334282,1345,331,36,9,0,"{""model__max_depth"": 12, ""model__max_features"": 0.7, ""model__min_samples_leaf"": 2, ""model__n_estimators"": 700}"
+50,gradient_boosting,gradient_boosting,31.345233471608328,42.514310982196115,0.4472177583398652,1339,337,36,9,0,
+70,extra_trees,tuned_extra_trees,26.725604281902225,35.06135836321716,0.24071388900673396,1316,360,36,9,0,"{""model__max_depth"": 12, ""model__max_features"": 0.7, ""model__min_samples_leaf"": 1, ""model__n_estimators"": 400}"
+100,extra_trees,tuned_extra_trees,29.93057866790751,38.18992834683269,0.45816621044407013,1367,309,36,9,0,"{""model__max_depth"": 12, ""model__max_features"": 0.7, ""model__min_samples_leaf"": 2, ""model__n_estimators"": 400}"
