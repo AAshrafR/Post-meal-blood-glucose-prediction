@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Post-Meal Blood Glucose Prediction</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+<div class="container">
+
+    <header class="header">
+        <h1>Post-Meal Blood Glucose Prediction</h1>
+
+        <p>
+            Predict blood glucose level at 120 minutes
+            after a meal using machine learning.
+        </p>
+    </header>
+
+
+    <form id="prediction-form">
+
+        <!-- Patient Information -->
+
+        <section class="card">
+
+            <h2>Patient Information</h2>
+
+            <div class="grid">
+
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input
+                        type="number"
+                        id="age"
+                        min="1"
+                        max="120"
+                        value="30"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+
+                    <select id="gender">
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="bmi">BMI</label>
+
+                    <input
+                        type="number"
+                        id="bmi"
+                        step="0.1"
+                        value="25"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="weight_lb">Weight (lb)</label>
+
+                    <input
+                        type="number"
+                        id="weight_lb"
+                        step="0.1"
+                        value="150"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="height_in">Height (in)</label>
+
+                    <input
+                        type="number"
+                        id="height_in"
+                        step="0.1"
+                        value="68"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="a1c">HbA1c</label>
+
+                    <input
+                        type="number"
+                        id="a1c"
+                        step="0.1"
+                        value="5.5"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="fasting_glucose_lab">
+                        Fasting Glucose
+                    </label>
+
+                    <input
+                        type="number"
+                        id="fasting_glucose_lab"
+                        step="0.1"
+                        value="90"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="premeal_glucose">
+                        Pre-Meal Glucose
+                    </label>
+
+                    <input
+                        type="number"
+                        id="premeal_glucose"
+                        step="0.1"
+                        value="90"
+                        required
+                    >
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Meal Information -->
+
+        <section class="card">
+
+            <h2>Meal Information</h2>
+
+            <div class="grid">
+
+                <div class="form-group">
+                    <label for="meal_date">Meal Date</label>
+
+                    <input
+                        type="date"
+                        id="meal_date"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="meal_time">Meal Time</label>
+
+                    <input
+                        type="time"
+                        id="meal_time"
+                        value="12:00"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="meal_type">Meal Type</label>
+
+                    <select id="meal_type">
+                        <option value="Breakfast">
+                            Breakfast
+                        </option>
+
+                        <option value="Lunch" selected>
+                            Lunch
+                        </option>
+
+                        <option value="Dinner">
+                            Dinner
+                        </option>
+
+                        <option value="Snack">
+                            Snack
+                        </option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="meal_hour">Meal Hour</label>
+
+                    <input
+                        type="number"
+                        id="meal_hour"
+                        min="0"
+                        max="23"
+                        value="12"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="calories">Calories</label>
+
+                    <input
+                        type="number"
+                        id="calories"
+                        step="0.1"
+                        value="500"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="carbs">Carbohydrates (g)</label>
+
+                    <input
+                        type="number"
+                        id="carbs"
+                        step="0.1"
+                        value="60"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="protein">Protein (g)</label>
+
+                    <input
+                        type="number"
+                        id="protein"
+                        step="0.1"
+                        value="25"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="fat">Fat (g)</label>
+
+                    <input
+                        type="number"
+                        id="fat"
+                        step="0.1"
+                        value="20"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="fiber">Fiber (g)</label>
+
+                    <input
+                        type="number"
+                        id="fiber"
+                        step="0.1"
+                        value="5"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="amount_consumed">
+                        Amount Consumed
+                    </label>
+
+                    <input
+                        type="number"
+                        id="amount_consumed"
+                        step="0.1"
+                        value="1"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="glucose_sensor_used">
+                        Glucose Sensor
+                    </label>
+
+                    <select id="glucose_sensor_used">
+                        <option value="dexcom">
+                            Dexcom
+                        </option>
+
+                        <option value="libre">
+                            Libre
+                        </option>
+                    </select>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <button
+            type="submit"
+            id="predict-button"
+        >
+            Predict Glucose
+        </button>
+
+    </form>
+
+
+    <!-- Result -->
+
+    <div
+        id="result"
+        class="result hidden"
+    >
+
+        <p>Predicted Glucose at 120 Minutes</p>
+
+        <h2>
+            <span id="prediction-value">--</span>
+        </h2>
+
+    </div>
+
+
+    <!-- Error -->
+
+    <div
+        id="error"
+        class="error hidden"
+    ></div>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
